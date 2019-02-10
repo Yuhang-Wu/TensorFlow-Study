@@ -22,4 +22,5 @@ def forward(data_x, regularizer):
     w2 = get_weight([11, 1], 0.01)
     b2 = get_bias([1])
     y_hat = tf.add(tf.matmul(y1, w2), b2)
+
     return y_hat

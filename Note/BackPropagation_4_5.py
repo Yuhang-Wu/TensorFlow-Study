@@ -27,10 +27,11 @@ def backward():
 
     # loss function
     loss_mse = tf.reduce_mean(tf.square(y_hat - true_y))
-    loss_total = tf.add(loss_mse, tf.add_n(tf.get_collection('losses')))
+    # loss_total = tf.add(loss_mse, tf.add_n(tf.get_collection('losses')))
 
     # backpropagation
-    train_step = tf.train.AdamOptimizer(learning_rate).minimize(loss_total)
+    # train_step = tf.train.AdamOptimizer(learning_rate).minimize(loss_total)
+    train_step = tf.train.AdamOptimizer(learning_rate).minimize(loss_mse)
 
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
